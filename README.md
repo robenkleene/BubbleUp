@@ -20,5 +20,5 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 ```
 
-Install with [Carthage/Carthage: A simple, decentralized dependency manager for Cocoa](https://github.com/Carthage/Carthage).
+Install with [Carthage](https://github.com/Carthage/Carthage).
 
