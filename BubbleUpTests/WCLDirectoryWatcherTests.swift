@@ -9,6 +9,7 @@
 import Cocoa
 import XCTest
 
+import XCTestTemp
 @testable import BubbleUp
 
 class WCLDirectoryWatcherEventManager: NSObject, WCLDirectoryWatcherDelegate {
