@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		45753DB21E9AF08600823315 /* BubbleUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45753DA81E9AF08600823315 /* BubbleUp.framework */; };
 		45753DB91E9AF08600823315 /* BubbleUp.h in Headers */ = {isa = PBXBuildFile; fileRef = 45753DAB1E9AF08600823315 /* BubbleUp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		457E55961EA5AF8200769481 /* XCTestTemp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457E55951EA5AF8200769481 /* XCTestTemp.framework */; };
-		457E55991EA5AFCC00769481 /* XCTestTemp.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457E55981EA5AFCC00769481 /* XCTestTemp.framework.dSYM */; };
 		457E559D1EA5B06C00769481 /* SubprocessFileSystemModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457E559B1EA5B06C00769481 /* SubprocessFileSystemModifier.swift */; };
 		457E559E1EA5B06C00769481 /* WCLDirectoryWatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457E559C1EA5B06C00769481 /* WCLDirectoryWatcherTests.swift */; };
 		457E55A31EA5B07800769481 /* WCLDirectoryWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 457E559F1EA5B07800769481 /* WCLDirectoryWatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -18,6 +16,8 @@
 		457E55A51EA5B07800769481 /* WCLFileSystemEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 457E55A11EA5B07800769481 /* WCLFileSystemEvent.h */; };
 		457E55A61EA5B07800769481 /* WCLFileSystemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55A21EA5B07800769481 /* WCLFileSystemEvent.m */; };
 		45D71DC91EA6F81000F0B11C /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D71DC81EA6F81000F0B11C /* TestConstants.swift */; };
+		45D71DE21EA700D100F0B11C /* StringPlusPath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D71DE11EA700D100F0B11C /* StringPlusPath.framework */; };
+		45D71DE31EA700D300F0B11C /* XCTestTemp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457E55951EA5AF8200769481 /* XCTestTemp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,19 +29,6 @@
 			remoteInfo = BubbleUp;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		457E55971EA5AFA900769481 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				457E55991EA5AFCC00769481 /* XCTestTemp.framework.dSYM in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		45753DA81E9AF08600823315 /* BubbleUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BubbleUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +46,7 @@
 		457E55A11EA5B07800769481 /* WCLFileSystemEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLFileSystemEvent.h; sourceTree = "<group>"; };
 		457E55A21EA5B07800769481 /* WCLFileSystemEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLFileSystemEvent.m; sourceTree = "<group>"; };
 		45D71DC81EA6F81000F0B11C /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
+		45D71DE11EA700D100F0B11C /* StringPlusPath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StringPlusPath.framework; path = Carthage/Build/Mac/StringPlusPath.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				457E55961EA5AF8200769481 /* XCTestTemp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +62,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				45753DB21E9AF08600823315 /* BubbleUp.framework in Frameworks */,
+				45D71DE21EA700D100F0B11C /* StringPlusPath.framework in Frameworks */,
+				45D71DE31EA700D300F0B11C /* XCTestTemp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +117,7 @@
 		457E55941EA5AF8200769481 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45D71DE11EA700D100F0B11C /* StringPlusPath.framework */,
 				457E55981EA5AFCC00769481 /* XCTestTemp.framework.dSYM */,
 				457E55951EA5AF8200769481 /* XCTestTemp.framework */,
 			);
@@ -158,7 +148,6 @@
 				45753DA41E9AF08600823315 /* Frameworks */,
 				45753DA51E9AF08600823315 /* Headers */,
 				45753DA61E9AF08600823315 /* Resources */,
-				457E55971EA5AFA900769481 /* CopyFiles */,
 			);
 			buildRules = (
 			);
