@@ -17,6 +17,7 @@
 		457E55A41EA5B07800769481 /* WCLDirectoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55A01EA5B07800769481 /* WCLDirectoryWatcher.m */; };
 		457E55A51EA5B07800769481 /* WCLFileSystemEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 457E55A11EA5B07800769481 /* WCLFileSystemEvent.h */; };
 		457E55A61EA5B07800769481 /* WCLFileSystemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55A21EA5B07800769481 /* WCLFileSystemEvent.m */; };
+		45D71DC91EA6F81000F0B11C /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D71DC81EA6F81000F0B11C /* TestConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		457E55A01EA5B07800769481 /* WCLDirectoryWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLDirectoryWatcher.m; sourceTree = "<group>"; };
 		457E55A11EA5B07800769481 /* WCLFileSystemEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLFileSystemEvent.h; sourceTree = "<group>"; };
 		457E55A21EA5B07800769481 /* WCLFileSystemEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLFileSystemEvent.m; sourceTree = "<group>"; };
+		45D71DC81EA6F81000F0B11C /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				457E559C1EA5B06C00769481 /* WCLDirectoryWatcherTests.swift */,
 				45753DB81E9AF08600823315 /* Info.plist */,
 				457E559A1EA5B06C00769481 /* BubbleUpTests-Bridging-Header.h */,
+				45D71DC81EA6F81000F0B11C /* TestConstants.swift */,
 			);
 			path = BubbleUpTests;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				457E559D1EA5B06C00769481 /* SubprocessFileSystemModifier.swift in Sources */,
+				45D71DC91EA6F81000F0B11C /* TestConstants.swift in Sources */,
 				457E559E1EA5B06C00769481 /* WCLDirectoryWatcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
