@@ -13,7 +13,7 @@
 		457E55991EA5AFCC00769481 /* XCTestTemp.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457E55981EA5AFCC00769481 /* XCTestTemp.framework.dSYM */; };
 		457E559D1EA5B06C00769481 /* SubprocessFileSystemModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457E559B1EA5B06C00769481 /* SubprocessFileSystemModifier.swift */; };
 		457E559E1EA5B06C00769481 /* WCLDirectoryWatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457E559C1EA5B06C00769481 /* WCLDirectoryWatcherTests.swift */; };
-		457E55A31EA5B07800769481 /* WCLDirectoryWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 457E559F1EA5B07800769481 /* WCLDirectoryWatcher.h */; };
+		457E55A31EA5B07800769481 /* WCLDirectoryWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 457E559F1EA5B07800769481 /* WCLDirectoryWatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		457E55A41EA5B07800769481 /* WCLDirectoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55A01EA5B07800769481 /* WCLDirectoryWatcher.m */; };
 		457E55A51EA5B07800769481 /* WCLFileSystemEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 457E55A11EA5B07800769481 /* WCLFileSystemEvent.h */; };
 		457E55A61EA5B07800769481 /* WCLFileSystemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55A21EA5B07800769481 /* WCLFileSystemEvent.m */; };

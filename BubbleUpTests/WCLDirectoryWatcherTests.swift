@@ -9,7 +9,7 @@
 import Cocoa
 import XCTest
 
-@testable import Web_Console
+@testable import BubbleUp
 
 class WCLDirectoryWatcherEventManager: NSObject, WCLDirectoryWatcherDelegate {
     var fileWasCreatedOrModifiedAtPathHandlers: Array<((_ path: String) -> Void)>
