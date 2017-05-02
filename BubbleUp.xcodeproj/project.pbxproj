@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45624BAA1EB8297600DCC12B /* StringPlusPath.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45D71DE11EA700D100F0B11C /* StringPlusPath.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45624BAB1EB8297D00DCC12B /* XCTestTemp.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457E55951EA5AF8200769481 /* XCTestTemp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45753DB21E9AF08600823315 /* BubbleUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45753DA81E9AF08600823315 /* BubbleUp.framework */; };
 		45753DB91E9AF08600823315 /* BubbleUp.h in Headers */ = {isa = PBXBuildFile; fileRef = 45753DAB1E9AF08600823315 /* BubbleUp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		457E559D1EA5B06C00769481 /* SubprocessFileSystemModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457E559B1EA5B06C00769481 /* SubprocessFileSystemModifier.swift */; };
@@ -29,6 +31,20 @@
 			remoteInfo = BubbleUp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		45624BA91EB8296C00DCC12B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				45624BAB1EB8297D00DCC12B /* XCTestTemp.framework in CopyFiles */,
+				45624BAA1EB8297600DCC12B /* StringPlusPath.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		45753DA81E9AF08600823315 /* BubbleUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BubbleUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,7 +180,7 @@
 			buildPhases = (
 				45753DAD1E9AF08600823315 /* Sources */,
 				45753DAE1E9AF08600823315 /* Frameworks */,
-				45753DAF1E9AF08600823315 /* Resources */,
+				45624BA91EB8296C00DCC12B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -216,13 +232,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		45753DA61E9AF08600823315 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		45753DAF1E9AF08600823315 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
