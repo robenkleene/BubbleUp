@@ -1,8 +1,15 @@
-# BubbleUp
+//
+//  BBUDirectoryWatcher.h
+//  BubbleUp
+//
+//  Created by Roben Kleene on 11/12/14.
+//  Copyright (c) 2014 Roben Kleene. All rights reserved.
+//
 
-A simple Cocoa Wrapper for macOS [File System Events API](https://developer.apple.com/library/content/documentation/Darwin/Conceptual/FSEvents_ProgGuide/UsingtheFSEventsFramework/UsingtheFSEventsFramework.html).
+#import <Foundation/Foundation.h>
 
-``` objective-c
+@class BBUDirectoryWatcher;
+
 NS_ASSUME_NONNULL_BEGIN
 @protocol BBUDirectoryWatcherDelegate <NSObject>
 @optional
@@ -18,6 +25,3 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, nullable) id<BBUDirectoryWatcherDelegate> delegate;
 @end
 NS_ASSUME_NONNULL_END
-```
-
-Install with [Carthage](https://github.com/Carthage/Carthage).

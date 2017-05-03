@@ -1,12 +1,12 @@
 //
-//  WCLFileSystemEvent.m
+//  BBUFileSystemEvent.m
 //  BubbleUp
 //
 //  Created by Roben Kleene on 11/12/14.
 //  Copyright (c) 2014 Roben Kleene. All rights reserved.
 //
 
-#import "WCLFileSystemEvent.h"
+#import "BBUFileSystemEvent.h"
 
 #pragma mark - NSStringFromFSEventStreamFlag
 
@@ -127,20 +127,20 @@ static inline NSString *NSStringFromFSEventFlags(FSEventStreamEventFlags eventFl
 
 
 
-#pragma mark - WCLFileSystemEvent
+#pragma mark - BBUFileSystemEvent
 
-@interface WCLFileSystemEvent ()
+@interface BBUFileSystemEvent ()
 @property (nonatomic, assign) FSEventStreamEventId eventId;
 @property (nonatomic, assign) FSEventStreamEventFlags eventFlags;
 @end
 
-@implementation WCLFileSystemEvent
+@implementation BBUFileSystemEvent
 
 + (instancetype)fileSystemEventWithPath:(NSString *)path
                              eventFlags:(FSEventStreamEventFlags)eventFlags
                              eventId:(FSEventStreamEventId)eventId
 {
-    return [[WCLFileSystemEvent alloc] initWithPath:path
+    return [[BBUFileSystemEvent alloc] initWithPath:path
                                          eventFlags:eventFlags
                                             eventId:eventId];
 }

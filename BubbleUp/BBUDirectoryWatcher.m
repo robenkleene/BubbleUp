@@ -1,19 +1,19 @@
 //
-//  WCLDirectoryWatcher.m
+//  BBUDirectoryWatcher.m
 //  BubbleUp
 //
 //  Created by Roben Kleene on 11/12/14.
 //  Copyright (c) 2014 Roben Kleene. All rights reserved.
 //
 
-#import "WCLDirectoryWatcher.h"
-#import "WCLFileSystemEvent.h"
+#import "BBUDirectoryWatcher.h"
+#import "BBUFileSystemEvent.h"
 
-#pragma mark - WCLDirectoryWatcher Class Extension
+#pragma mark - BBUDirectoryWatcher Class Extension
 
-@interface WCLDirectoryWatcher ()
+@interface BBUDirectoryWatcher ()
 @property (nonatomic, assign) FSEventStreamRef stream;
-- (void)handleFileSystemEvent:(WCLFileSystemEvent *)fileSystemEvent;
+- (void)handleFileSystemEvent:(BBUFileSystemEvent *)fileSystemEvent;
 @end
 
 
@@ -26,12 +26,12 @@ void wcl_plugin_directory_event_stream_callback(ConstFSEventStreamRef streamRef,
                                                 const FSEventStreamEventFlags eventFlags[],
                                                 const FSEventStreamEventId eventIds[])
 {
-    WCLDirectoryWatcher *directoryWatcher = (__bridge WCLDirectoryWatcher *)clientCallBackInfo;
+    BBUDirectoryWatcher *directoryWatcher = (__bridge BBUDirectoryWatcher *)clientCallBackInfo;
     int i;
     char **paths = eventPaths;
     for (i = 0; i < numEvents; i++) {
         NSString *path = [NSString stringWithFormat:@"%s", paths[i]];
-        WCLFileSystemEvent *fileSystemEvent = [WCLFileSystemEvent fileSystemEventWithPath:path
+        BBUFileSystemEvent *fileSystemEvent = [BBUFileSystemEvent fileSystemEventWithPath:path
                                                                                eventFlags:eventFlags[i]
                                                                                   eventId:eventIds[i]];
         [directoryWatcher handleFileSystemEvent:fileSystemEvent];
@@ -39,9 +39,9 @@ void wcl_plugin_directory_event_stream_callback(ConstFSEventStreamRef streamRef,
 }
 
 
-#pragma mark - WCLDirectoryWatcher Implementation
+#pragma mark - BBUDirectoryWatcher Implementation
 
-@implementation WCLDirectoryWatcher
+@implementation BBUDirectoryWatcher
 
 - (id)initWithURL:(NSURL *)url
 {
@@ -52,7 +52,7 @@ void wcl_plugin_directory_event_stream_callback(ConstFSEventStreamRef streamRef,
     return self;
 }
 
-- (void)handleFileSystemEvent:(WCLFileSystemEvent *)fileSystemEvent
+- (void)handleFileSystemEvent:(BBUFileSystemEvent *)fileSystemEvent
 {
 //    NSLog(@"%@ fileSystemEvent = %@", self, fileSystemEvent);
 

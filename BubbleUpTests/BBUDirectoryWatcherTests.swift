@@ -1,5 +1,5 @@
 //
-//  WCLDirectoryWatcherTests.swift
+//  BBUDirectoryWatcherTests.swift
 //  BubbleUp
 //
 //  Created by Roben Kleene on 11/20/14.
@@ -13,7 +13,7 @@ import XCTestTemp
 import StringPlusPath
 @testable import BubbleUp
 
-class WCLDirectoryWatcherEventManager: NSObject, WCLDirectoryWatcherDelegate {
+class BBUDirectoryWatcherEventManager: NSObject, BBUDirectoryWatcherDelegate {
     var fileWasCreatedOrModifiedAtPathHandlers: Array<((_ path: String) -> Void)>
     var directoryWasCreatedOrModifiedAtPathHandlers: Array<((_ path: String) -> Void)>
     var itemWasRemovedAtPathHandlers: Array<((_ path: String) -> Void)>
@@ -24,7 +24,7 @@ class WCLDirectoryWatcherEventManager: NSObject, WCLDirectoryWatcherDelegate {
         self.itemWasRemovedAtPathHandlers = Array<((_ path: String) -> Void)>()
     }
 
-    func directoryWatcher(_ directoryWatcher: WCLDirectoryWatcher, fileWasCreatedOrModifiedAtPath path: String) {
+    func directoryWatcher(_ directoryWatcher: BBUDirectoryWatcher, fileWasCreatedOrModifiedAtPath path: String) {
         assert(fileWasCreatedOrModifiedAtPathHandlers.count > 0, "There should be at least one handler")
         
         if (fileWasCreatedOrModifiedAtPathHandlers.count > 0) {
@@ -33,7 +33,7 @@ class WCLDirectoryWatcherEventManager: NSObject, WCLDirectoryWatcherDelegate {
         }
     }
     
-    func directoryWatcher(_ directoryWatcher: WCLDirectoryWatcher, directoryWasCreatedOrModifiedAtPath path: String) {
+    func directoryWatcher(_ directoryWatcher: BBUDirectoryWatcher, directoryWasCreatedOrModifiedAtPath path: String) {
         assert(directoryWasCreatedOrModifiedAtPathHandlers.count > 0, "There should be at least one handler")
         
         if (directoryWasCreatedOrModifiedAtPathHandlers.count > 0) {
@@ -42,7 +42,7 @@ class WCLDirectoryWatcherEventManager: NSObject, WCLDirectoryWatcherDelegate {
         }
     }
     
-    func directoryWatcher(_ directoryWatcher: WCLDirectoryWatcher, itemWasRemovedAtPath path: String) {
+    func directoryWatcher(_ directoryWatcher: BBUDirectoryWatcher, itemWasRemovedAtPath path: String) {
         assert(itemWasRemovedAtPathHandlers.count > 0, "There should be at least one handler")
         
         if (itemWasRemovedAtPathHandlers.count > 0) {
@@ -64,14 +64,14 @@ class WCLDirectoryWatcherEventManager: NSObject, WCLDirectoryWatcherDelegate {
     }
 }
 
-class WCLDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
-    var directoryWatcher: WCLDirectoryWatcher!
-    var directoryWatcherEventManager: WCLDirectoryWatcherEventManager!
+class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
+    var directoryWatcher: BBUDirectoryWatcher!
+    var directoryWatcherEventManager: BBUDirectoryWatcherEventManager!
     
     override func setUp() {
         super.setUp()
-        directoryWatcher = WCLDirectoryWatcher(url: temporaryDirectoryURL as URL!)
-        directoryWatcherEventManager = WCLDirectoryWatcherEventManager()
+        directoryWatcher = BBUDirectoryWatcher(url: temporaryDirectoryURL as URL!)
+        directoryWatcherEventManager = BBUDirectoryWatcherEventManager()
         directoryWatcher.delegate = directoryWatcherEventManager
     }
     
@@ -179,7 +179,7 @@ class WCLDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
     }
 }
 
-class WCLDirectoryWatcherDirectoryTests: WCLDirectoryWatcherTestCase {
+class BBUDirectoryWatcherDirectoryTests: BBUDirectoryWatcherTestCase {
 
     func testCreateWriteAndRemoveDirectory() {
         let testDirectoryPath = temporaryDirectoryURL.path.appendingPathComponent(testDirectoryName)
@@ -293,7 +293,7 @@ class WCLDirectoryWatcherDirectoryTests: WCLDirectoryWatcherTestCase {
 }
 
 
-class WCLDirectoryWatcherFileTests: WCLDirectoryWatcherTestCase {
+class BBUDirectoryWatcherFileTests: BBUDirectoryWatcherTestCase {
     var testFilePath: String!
     
     override func setUp() {
