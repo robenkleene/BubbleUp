@@ -1,6 +1,6 @@
 //
 //  SubprocessFileSystemModifier.swift
-//  PluginEditorPrototype
+//  BubbleUp
 //
 //  Created by Roben Kleene on 11/22/14.
 //  Copyright (c) 2014 Roben Kleene. All rights reserved.
