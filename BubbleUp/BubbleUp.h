@@ -8,5 +8,5 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import <BubbleUp/WCLDirectoryWatcher.h>
+#import <BubbleUp/BBUDirectoryWatcher.h>
 
