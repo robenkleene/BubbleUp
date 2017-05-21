@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4536957D1ED258F700BDA37F /* OutOfTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4536957C1ED258F700BDA37F /* OutOfTouch.framework */; };
+		4536957E1ED2590200BDA37F /* OutOfTouch.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4536957C1ED258F700BDA37F /* OutOfTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45624BAA1EB8297600DCC12B /* StringPlusPath.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45D71DE11EA700D100F0B11C /* StringPlusPath.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45624BAB1EB8297D00DCC12B /* XCTestTemp.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457E55951EA5AF8200769481 /* XCTestTemp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45753DB21E9AF08600823315 /* BubbleUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45753DA81E9AF08600823315 /* BubbleUp.framework */; };
 		45753DB91E9AF08600823315 /* BubbleUp.h in Headers */ = {isa = PBXBuildFile; fileRef = 45753DAB1E9AF08600823315 /* BubbleUp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		457E559D1EA5B06C00769481 /* SubprocessFileSystemModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457E559B1EA5B06C00769481 /* SubprocessFileSystemModifier.swift */; };
 		457E559E1EA5B06C00769481 /* BBUDirectoryWatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457E559C1EA5B06C00769481 /* BBUDirectoryWatcherTests.swift */; };
 		457E55A31EA5B07800769481 /* BBUDirectoryWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 457E559F1EA5B07800769481 /* BBUDirectoryWatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		457E55A41EA5B07800769481 /* BBUDirectoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E55A01EA5B07800769481 /* BBUDirectoryWatcher.m */; };
@@ -39,6 +40,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4536957E1ED2590200BDA37F /* OutOfTouch.framework in CopyFiles */,
 				45624BAB1EB8297D00DCC12B /* XCTestTemp.framework in CopyFiles */,
 				45624BAA1EB8297600DCC12B /* StringPlusPath.framework in CopyFiles */,
 			);
@@ -47,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4536957C1ED258F700BDA37F /* OutOfTouch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OutOfTouch.framework; path = Carthage/Build/Mac/OutOfTouch.framework; sourceTree = "<group>"; };
 		45753DA81E9AF08600823315 /* BubbleUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BubbleUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45753DAB1E9AF08600823315 /* BubbleUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BubbleUp.h; sourceTree = "<group>"; };
 		45753DAC1E9AF08600823315 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,7 +58,6 @@
 		457E55951EA5AF8200769481 /* XCTestTemp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTestTemp.framework; path = Carthage/Build/Mac/XCTestTemp.framework; sourceTree = "<group>"; };
 		457E55981EA5AFCC00769481 /* XCTestTemp.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = XCTestTemp.framework.dSYM; path = Carthage/Build/Mac/XCTestTemp.framework.dSYM; sourceTree = "<group>"; };
 		457E559A1EA5B06C00769481 /* BubbleUpTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BubbleUpTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		457E559B1EA5B06C00769481 /* SubprocessFileSystemModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubprocessFileSystemModifier.swift; sourceTree = "<group>"; };
 		457E559C1EA5B06C00769481 /* BBUDirectoryWatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBUDirectoryWatcherTests.swift; sourceTree = "<group>"; };
 		457E559F1EA5B07800769481 /* BBUDirectoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUDirectoryWatcher.h; sourceTree = "<group>"; };
 		457E55A01EA5B07800769481 /* BBUDirectoryWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUDirectoryWatcher.m; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				45753DB21E9AF08600823315 /* BubbleUp.framework in Frameworks */,
 				45D71DE21EA700D100F0B11C /* StringPlusPath.framework in Frameworks */,
 				45D71DE31EA700D300F0B11C /* XCTestTemp.framework in Frameworks */,
+				4536957D1ED258F700BDA37F /* OutOfTouch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +124,6 @@
 		45753DB51E9AF08600823315 /* BubbleUpTests */ = {
 			isa = PBXGroup;
 			children = (
-				457E559B1EA5B06C00769481 /* SubprocessFileSystemModifier.swift */,
 				457E559C1EA5B06C00769481 /* BBUDirectoryWatcherTests.swift */,
 				45753DB81E9AF08600823315 /* Info.plist */,
 				457E559A1EA5B06C00769481 /* BubbleUpTests-Bridging-Header.h */,
@@ -133,6 +135,7 @@
 		457E55941EA5AF8200769481 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4536957C1ED258F700BDA37F /* OutOfTouch.framework */,
 				45D71DE11EA700D100F0B11C /* StringPlusPath.framework */,
 				457E55981EA5AFCC00769481 /* XCTestTemp.framework.dSYM */,
 				457E55951EA5AF8200769481 /* XCTestTemp.framework */,
@@ -254,7 +257,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				457E559D1EA5B06C00769481 /* SubprocessFileSystemModifier.swift in Sources */,
 				45D71DC91EA6F81000F0B11C /* TestConstants.swift in Sources */,
 				457E559E1EA5B06C00769481 /* BBUDirectoryWatcherTests.swift in Sources */,
 			);

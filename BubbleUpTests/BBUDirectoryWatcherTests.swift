@@ -11,6 +11,7 @@ import XCTest
 
 import XCTestTemp
 import StringPlusPath
+import OutOfTouch
 @testable import BubbleUp
 
 class BBUDirectoryWatcherEventManager: NSObject, BBUDirectoryWatcherDelegate {
@@ -90,7 +91,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
                 fileWasCreatedOrModifiedExpectation.fulfill()
             }
         })
-        SubprocessFileSystemModifier.createFile(atPath: path)
+        OutOfTouch.createFile(atPath: path)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     func createDirectoryWithConfirmation(atPath path: String) {
@@ -100,7 +101,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
                 directoryWasCreatedOrModifiedExpectation.fulfill()
             }
         })
-        SubprocessFileSystemModifier.createDirectory(atPath: path)
+        OutOfTouch.createDirectory(atPath: path)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     
@@ -112,7 +113,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
                 fileWasModifiedExpectation.fulfill()
             }
         })
-        SubprocessFileSystemModifier.writeToFile(atPath: path, contents: testFileContents)
+        OutOfTouch.writeToFile(atPath: path, contents: testFileContents)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     
@@ -124,7 +125,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
                 fileWasRemovedExpectation.fulfill()
             }
         })
-        SubprocessFileSystemModifier.removeFile(atPath: path)
+        OutOfTouch.removeFile(atPath: path)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     func removeDirectoryWithConfirmation(atPath path: String) {
@@ -134,7 +135,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
                 directoryWasRemovedExpectation.fulfill()
             }
         })
-        SubprocessFileSystemModifier.removeDirectory(atPath: path)
+        OutOfTouch.removeDirectory(atPath: path)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     
@@ -155,7 +156,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
             }
         })
         // Move
-        SubprocessFileSystemModifier.moveItem(atPath: path, toPath: destinationPath)
+        OutOfTouch.moveItem(atPath: path, toPath: destinationPath)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     func moveDirectoryWithConfirmation(atPath path: String, destinationPath: String) {
@@ -174,7 +175,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
             }
         })
         // Move
-        SubprocessFileSystemModifier.moveItem(atPath: path, toPath: destinationPath)
+        OutOfTouch.moveItem(atPath: path, toPath: destinationPath)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 }
@@ -364,7 +365,7 @@ class BBUDirectoryWatcherFileTests: BBUDirectoryWatcherTestCase {
         FileManager.default.createFile(atPath: testFilePathTwo, contents: contentsData, attributes: nil)
         
         // Create file
-        SubprocessFileSystemModifier.createFile(atPath: testFilePath)
+        OutOfTouch.createFile(atPath: testFilePath)
         
         // Wait for expectation
         waitForExpectations(timeout: defaultTimeout, handler: nil)
@@ -388,7 +389,7 @@ class BBUDirectoryWatcherFileTests: BBUDirectoryWatcherTestCase {
         }
         
         // Remove file
-        SubprocessFileSystemModifier.removeFile(atPath: testFilePath)
+        OutOfTouch.removeFile(atPath: testFilePath)
         
         // Wait for expectation
         waitForExpectations(timeout: defaultTimeout, handler: nil)
@@ -418,7 +419,7 @@ class BBUDirectoryWatcherFileTests: BBUDirectoryWatcherTestCase {
         }
             
         // Create file
-        SubprocessFileSystemModifier.createFile(atPath: testFilePath)
+        OutOfTouch.createFile(atPath: testFilePath)
             
         // Wait for expectation
         waitForExpectations(timeout: defaultTimeout, handler: nil)
@@ -447,7 +448,7 @@ class BBUDirectoryWatcherFileTests: BBUDirectoryWatcherTestCase {
         }
         
         // Remove file
-        SubprocessFileSystemModifier.removeFile(atPath: testFilePath)
+        OutOfTouch.removeFile(atPath: testFilePath)
         
         // Wait for expectation
         waitForExpectations(timeout: defaultTimeout, handler: nil)
