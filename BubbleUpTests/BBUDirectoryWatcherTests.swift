@@ -91,7 +91,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
                 fileWasCreatedOrModifiedExpectation.fulfill()
             }
         })
-        OutOfTouch.createFile(atPath: path)
+        OutOfTouch.createFile(atPath: path, handler: nil)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     func createDirectoryWithConfirmation(atPath path: String) {
@@ -101,7 +101,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
                 directoryWasCreatedOrModifiedExpectation.fulfill()
             }
         })
-        OutOfTouch.createDirectory(atPath: path)
+        OutOfTouch.createDirectory(atPath: path, handler: nil)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     
@@ -113,7 +113,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
                 fileWasModifiedExpectation.fulfill()
             }
         })
-        OutOfTouch.writeToFile(atPath: path, contents: testFileContents)
+        OutOfTouch.writeToFile(atPath: path, contents: testFileContents, handler: nil)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     
@@ -125,7 +125,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
                 fileWasRemovedExpectation.fulfill()
             }
         })
-        OutOfTouch.removeFile(atPath: path)
+        OutOfTouch.removeFile(atPath: path, handler: nil)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     func removeDirectoryWithConfirmation(atPath path: String) {
@@ -135,7 +135,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
                 directoryWasRemovedExpectation.fulfill()
             }
         })
-        OutOfTouch.removeDirectory(atPath: path)
+        OutOfTouch.removeDirectory(atPath: path, handler: nil)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     
@@ -156,7 +156,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
             }
         })
         // Move
-        OutOfTouch.moveItem(atPath: path, toPath: destinationPath)
+        OutOfTouch.moveItem(atPath: path, toPath: destinationPath, handler: nil)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
     func moveDirectoryWithConfirmation(atPath path: String, destinationPath: String) {
@@ -175,7 +175,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
             }
         })
         // Move
-        OutOfTouch.moveItem(atPath: path, toPath: destinationPath)
+        OutOfTouch.moveItem(atPath: path, toPath: destinationPath, handler: nil)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 }
@@ -365,7 +365,7 @@ class BBUDirectoryWatcherFileTests: BBUDirectoryWatcherTestCase {
         FileManager.default.createFile(atPath: testFilePathTwo, contents: contentsData, attributes: nil)
         
         // Create file
-        OutOfTouch.createFile(atPath: testFilePath)
+        OutOfTouch.createFile(atPath: testFilePath, handler: nil)
         
         // Wait for expectation
         waitForExpectations(timeout: defaultTimeout, handler: nil)
@@ -389,7 +389,7 @@ class BBUDirectoryWatcherFileTests: BBUDirectoryWatcherTestCase {
         }
         
         // Remove file
-        OutOfTouch.removeFile(atPath: testFilePath)
+        OutOfTouch.removeFile(atPath: testFilePath, handler: nil)
         
         // Wait for expectation
         waitForExpectations(timeout: defaultTimeout, handler: nil)
@@ -419,7 +419,7 @@ class BBUDirectoryWatcherFileTests: BBUDirectoryWatcherTestCase {
         }
             
         // Create file
-        OutOfTouch.createFile(atPath: testFilePath)
+        OutOfTouch.createFile(atPath: testFilePath, handler: nil)
             
         // Wait for expectation
         waitForExpectations(timeout: defaultTimeout, handler: nil)
@@ -448,7 +448,7 @@ class BBUDirectoryWatcherFileTests: BBUDirectoryWatcherTestCase {
         }
         
         // Remove file
-        OutOfTouch.removeFile(atPath: testFilePath)
+        OutOfTouch.removeFile(atPath: testFilePath, handler: nil)
         
         // Wait for expectation
         waitForExpectations(timeout: defaultTimeout, handler: nil)
