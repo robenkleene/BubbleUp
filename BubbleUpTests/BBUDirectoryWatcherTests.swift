@@ -14,14 +14,14 @@ import XCTest
 import XCTestTemp
 
 class BBUDirectoryWatcherEventManager: NSObject, BBUDirectoryWatcherDelegate {
-    var fileWasCreatedOrModifiedAtPathHandlers: [((String) -> Void)]
-    var directoryWasCreatedOrModifiedAtPathHandlers: [((String) -> Void)]
-    var itemWasRemovedAtPathHandlers: [((_ path: String) -> Void)]
+    var fileWasCreatedOrModifiedAtPathHandlers: [(String) -> Void]
+    var directoryWasCreatedOrModifiedAtPathHandlers: [(String) -> Void]
+    var itemWasRemovedAtPathHandlers: [(String) -> Void]
 
     override init() {
-        fileWasCreatedOrModifiedAtPathHandlers = [((String) -> Void)]()
-        directoryWasCreatedOrModifiedAtPathHandlers = [((String) -> Void)]()
-        itemWasRemovedAtPathHandlers = [((String) -> Void)]()
+        fileWasCreatedOrModifiedAtPathHandlers = [(String) -> Void]()
+        directoryWasCreatedOrModifiedAtPathHandlers = [(String) -> Void]()
+        itemWasRemovedAtPathHandlers = [(String) -> Void]()
     }
 
     func directoryWatcher(_: BBUDirectoryWatcher, fileWasCreatedOrModifiedAtPath path: String) {
