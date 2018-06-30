@@ -222,7 +222,8 @@ class BBUDirectoryWatcherDirectoryTests: BBUDirectoryWatcherTestCase {
         createDirectoryWithConfirmation(atPath: testDirectoryPath)
 
         // Test Move
-        let testDirectoryPathTwo = testDirectoryPath.deletingLastPathComponent.appendingPathComponent(testDirectoryNameTwo)
+        let testDirectoryPathTwo = testDirectoryPath.deletingLastPathComponent
+            .appendingPathComponent(testDirectoryNameTwo)
         moveDirectoryWithConfirmation(atPath: testDirectoryPath, destinationPath: testDirectoryPathTwo)
 
         // Test Move Again
@@ -245,7 +246,8 @@ class BBUDirectoryWatcherDirectoryTests: BBUDirectoryWatcherTestCase {
         createFileWithConfirmation(atPath: testFilePath)
 
         // Test Move
-        let testDirectoryPathTwo = testDirectoryPath.deletingLastPathComponent.appendingPathComponent(testDirectoryNameTwo)
+        let testDirectoryPathTwo = testDirectoryPath.deletingLastPathComponent
+            .appendingPathComponent(testDirectoryNameTwo)
         moveDirectoryWithConfirmation(atPath: testDirectoryPath, destinationPath: testDirectoryPathTwo)
 
         // Test Modify File
