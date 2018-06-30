@@ -14,7 +14,7 @@ import XCTest
 import XCTestTemp
 
 class BBUDirectoryWatcherEventManager: NSObject, BBUDirectoryWatcherDelegate {
-    var fileWasCreatedOrModifiedAtPathHandlers: Array<((_ path: String) -> Void)>
+    var fileWasCreatedOrModifiedAtPathHandlers: [((String) -> Void)]
     var directoryWasCreatedOrModifiedAtPathHandlers: Array<((_ path: String) -> Void)>
     var itemWasRemovedAtPathHandlers: Array<((_ path: String) -> Void)>
 
