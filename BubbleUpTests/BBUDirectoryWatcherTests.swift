@@ -70,7 +70,7 @@ class BBUDirectoryWatcherTestCase: TemporaryDirectoryTestCase {
 
     override func setUp() {
         super.setUp()
-        directoryWatcher = BBUDirectoryWatcher(url: temporaryDirectoryURL as URL!)
+        directoryWatcher = BBUDirectoryWatcher(url: temporaryDirectoryURL)
         directoryWatcherEventManager = BBUDirectoryWatcherEventManager()
         directoryWatcher.delegate = directoryWatcherEventManager
     }
