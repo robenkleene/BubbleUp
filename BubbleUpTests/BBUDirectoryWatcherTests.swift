@@ -21,7 +21,7 @@ class BBUDirectoryWatcherEventManager: NSObject, BBUDirectoryWatcherDelegate {
     override init() {
         fileWasCreatedOrModifiedAtPathHandlers = Array<((_ path: String) -> Void)>()
         directoryWasCreatedOrModifiedAtPathHandlers = Array<((_ path: String) -> Void)>()
-        itemWasRemovedAtPathHandlers = Array<((_ path: String) -> Void)>()
+        itemWasRemovedAtPathHandlers = [((String) -> Void)]()
     }
 
     func directoryWatcher(_: BBUDirectoryWatcher, fileWasCreatedOrModifiedAtPath path: String) {
