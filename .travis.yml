@@ -1,5 +1,5 @@
 language: swift
-osx_image: xcode9.3
+osx_image: xcode9.4
 script: make ci
 xcode_project: BubbleUp
 xcode_scheme: BubbleUp
@@ -7,10 +7,19 @@ env:
   global:
   - FRAMEWORK_NAME=BubbleUp
 before_install:
-  - brew update
-  - brew outdated carthage || brew upgrade carthage
+- brew update
+- brew outdated carthage || brew upgrade carthage
 before_script:
-  - make lint
+- make lint
 before_deploy:
-  - carthage build --no-skip-current
-  - carthage archive $FRAMEWORK_NAME
+- carthage build --no-skip-current
+- carthage archive $FRAMEWORK_NAME
+deploy:
+  provider: releases
+  api_key:
+    secure: BbW/b2MUPoX17BbfG3GfSDQdsMG1PUqGje+vDu/ztNgdmzBJu9RQNHejrr51M41fnFrh0FY5VldR7MxIN8ZS5MBFk3rt7yHmgP8hg+YZTSDVHxVq7juu3SqWI2xnLJclB2mxMFiN8UVi0/+UGw2Sq4ZlF90T8Tc7+tUHNf4Xj+E/Q9jjkECI/WL++WNRRfEUFLkY7/xUSJXZjCsexsDWqzFOiJ9qOok6Ot5rikkm6hE687FaX2MABcIOD2hHNdXg8qsuvkJ1E3ZJ1ZuqgekmN09kObvVM3KDmLLcYh+Hk+1sOoTUJbvOv/A8XNVL8Vzsvs5UHm80G4IWDgd2qS/GxcuMqI5gsLVY4aUstVndq/3gZ28oS4ZI5Bdv9OKDR0gQJqKMjdsmREULQzFmAU5gPINmnRUSvofZHObfEXj2ua3XnuYBVsSINMPVpXDvNqL3K3woo4Lcpkv7Op30b+BcNvEvJgELo0OyDrHQomvUPPk1doml2lmkUlUf1o93HVl4Ne8ip1Ywy+IU1pVYmNt9rGQXGoZjz9GMRuBnS8A62Pd9rg4rVBVMqhRUF1B+wwMJPbaqjtN8m6YWN0t+UbnzV4VBC0aH0qG+qXwl6OOfchkeubgX3YK10c9ZE+eiF85LtTxOt/W3nFKtnRAihEyQxB/yKPhFWM0TGOSnLfuCpC8=
+  file: BubbleUp.framework.zip
+  skip_cleanup: true
+  on:
+    repo: robenkleene/BubbleUp
+    tags: true
