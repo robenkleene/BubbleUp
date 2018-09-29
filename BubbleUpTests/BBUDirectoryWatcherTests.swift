@@ -357,7 +357,9 @@ class BBUDirectoryWatcherFileTests: BBUDirectoryWatcherTestCase {
         // Test Create
 
         // Create expectation
-        let fileWasCreatedOrModifiedExpectation = expectation(description: "File was created at \(testFilePath)")
+        let fileWasCreatedOrModifiedExpectation = expectation(description: """
+        File created at \(String(describing: testFilePath))
+        """)
         directoryWatcherEventManager?.add(fileWasCreatedOrModifiedAtPathHandler: { path -> Void in
             if type(of: self).resolve(temporaryDirectoryPath: path) == self.testFilePath {
                 fileWasCreatedOrModifiedExpectation.fulfill()
