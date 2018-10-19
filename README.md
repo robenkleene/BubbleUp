@@ -21,3 +21,4 @@ NS_ASSUME_NONNULL_END
 ```
 
 Install with [Carthage](https://github.com/Carthage/Carthage).
+
