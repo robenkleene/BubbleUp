@@ -1,20 +1,21 @@
 language: swift
 osx_image: xcode10
 script: make ci
-xcode_project: BubbleUp
-xcode_scheme: BubbleUp
-env:
-  global:
-  - FRAMEWORK_NAME=BubbleUp
+branches:
+  only:
+    - master
+    - /^\d+\.\d+\.\d+$/
 before_install:
-- brew update
-- brew outdated carthage || brew upgrade carthage
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
 before_script:
-- make lint
-- carthage bootstrap
+  - make lint
+  - carthage bootstrap
 before_deploy:
-- carthage build --no-skip-current
-- carthage archive $FRAMEWORK_NAME
+  - carthage build --no-skip-current
+  - carthage archive BubbleUp
+notifications:
+  irc: "chat.freenode.net#thepotionlab-notifications"
 deploy:
   provider: releases
   api_key:
@@ -24,3 +25,6 @@ deploy:
   on:
     repo: robenkleene/BubbleUp
     tags: true
+env:
+  global:
+    secure: RF+6VFM7EJwSiXH0X20aXGSd+JXcAP+CI2HRVp5LTaXin0eGsuPR2J1Mn6VAjQZToBVu59y260GaqG+QeMJJaKWjWOj4TtBIZFfkDN5X7L3QLUO5HhFJd3vQomUQjVv1N+lfEb3eqne337lSLESBGhFTWECV/gYLTa7RV0hubgqab6RpLSb49LmLcx0dv+V+STs9aSBlpmNB1EqMkZ0oHL/FN01pJGqAaFg4GSgSmJmFsf+Ftl/G8gl9RboyTUAibUAJJXqpGTVLkJT6cGE3L313wKSBk5QD0AUjhI52AvbWSWllBkcVv9/LrQRaR9WXTQU1fafMUlzhuqZ6r5/49ObvDl8hNwwNBafl9dRFwkFwG9Yrru325Xz4Ftfnb9acqkBVfN1chMUOW6+/khW4gQ9LIqsv7ppkggNyAA0+xzB/CYQtq1ph078bDmOpr+67hDwX1ZJy3HKTxtWA8DaxKWpyTtRLnaODlUlzyA2u0A6/8MVSRbWX3fX1ZN094PS/AebjG62xy4AcV79mSVSl1v3waOGWNr5yx2J0e0Z7pnn6Iac0NuA0iKzmLxSd/YlRWYBZqPj6bZO+dy3E57FeGfrkQp3F6Sxreyst96sSbrRDJ3zko7oLzGoxtxfdy67L0VDIlPBKrza6kuTTswUgugroFwI429kLk2eSjqqKoNA=
