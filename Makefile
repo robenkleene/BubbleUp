@@ -16,7 +16,7 @@ swiftlint_autocorrect:
 	swiftlint autocorrect
 
 clangformat:
-	git ls-files '*.h' '*.m' -z | xargs -0 clang-format -i
+	git ls-files '*.h' '*.m' -z | xargs -0 clang-format -style=file -i
 
 build:
 	xcodebuild build \
