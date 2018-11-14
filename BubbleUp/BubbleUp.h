@@ -9,4 +9,3 @@
 #import <Cocoa/Cocoa.h>
 
 #import <BubbleUp/BBUDirectoryWatcher.h>
-
