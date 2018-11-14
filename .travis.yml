@@ -16,6 +16,7 @@ before_deploy:
   - carthage archive BubbleUp
 notifications:
   irc: "chat.freenode.net#thepotionlab-notifications"
+  email: true
 deploy:
   provider: releases
   api_key:
