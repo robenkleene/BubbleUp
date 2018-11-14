@@ -4,7 +4,7 @@ SCHEME = BubbleUp
 
 ci: build
 ac: autocorrect
-autocorrect: swiftformat swiftlint_autocorrect
+autocorrect: swiftformat swiftlint_autocorrect clangformat
 
 lint:
 	swiftlint --strict
@@ -14,6 +14,9 @@ swiftformat:
 
 swiftlint_autocorrect:
 	swiftlint autocorrect
+
+clangformat:
+	find . -iname *.h -o -iname *.m | xargs clang-format -i
 
 build:
 	xcodebuild build \
