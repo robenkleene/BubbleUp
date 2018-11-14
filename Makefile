@@ -10,7 +10,7 @@ lint:
 	swiftlint --strict
 
 swiftformat:
-	git ls-files '*.h' '*.m' -z | xargs -0 swiftformat --commas inline
+	git ls-files '*.swift' -z | xargs -0 swiftformat --commas inline
 
 swiftlint_autocorrect:
 	swiftlint autocorrect
