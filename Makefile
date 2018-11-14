@@ -1,6 +1,6 @@
 SCHEME = BubbleUp
 
-.PHONY: build test lint autocorrect swiftformat swiftlint_autocorrect bootstrap
+.PHONY: build test lint autocorrect swiftformat swiftlint_autocorrect bootstrap clangformat
 
 ci: build
 ac: autocorrect
