@@ -83,29 +83,27 @@ static inline NSString *NSStringFromFSEventStreamFlag(int flag) {
 }
 
 static inline NSString *NSStringFromFSEventFlags(FSEventStreamEventFlags eventFlags) {
-    int event_stream_flags_array[21] = {
-        kFSEventStreamEventFlagNone,
-        kFSEventStreamEventFlagMustScanSubDirs,
-        kFSEventStreamEventFlagUserDropped,
-        kFSEventStreamEventFlagKernelDropped,
-        kFSEventStreamEventFlagEventIdsWrapped,
-        kFSEventStreamEventFlagHistoryDone,
-        kFSEventStreamEventFlagRootChanged,
-        kFSEventStreamEventFlagMount,
-        kFSEventStreamEventFlagUnmount,
-        kFSEventStreamEventFlagItemCreated,
-        kFSEventStreamEventFlagItemRemoved,
-        kFSEventStreamEventFlagItemInodeMetaMod,
-        kFSEventStreamEventFlagItemRenamed,
-        kFSEventStreamEventFlagItemModified,
-        kFSEventStreamEventFlagItemFinderInfoMod,
-        kFSEventStreamEventFlagItemChangeOwner,
-        kFSEventStreamEventFlagItemXattrMod,
-        kFSEventStreamEventFlagItemIsFile,
-        kFSEventStreamEventFlagItemIsDir,
-        kFSEventStreamEventFlagItemIsSymlink,
-        kFSEventStreamEventFlagOwnEvent
-    };
+    int event_stream_flags_array[21] = {kFSEventStreamEventFlagNone,
+                                        kFSEventStreamEventFlagMustScanSubDirs,
+                                        kFSEventStreamEventFlagUserDropped,
+                                        kFSEventStreamEventFlagKernelDropped,
+                                        kFSEventStreamEventFlagEventIdsWrapped,
+                                        kFSEventStreamEventFlagHistoryDone,
+                                        kFSEventStreamEventFlagRootChanged,
+                                        kFSEventStreamEventFlagMount,
+                                        kFSEventStreamEventFlagUnmount,
+                                        kFSEventStreamEventFlagItemCreated,
+                                        kFSEventStreamEventFlagItemRemoved,
+                                        kFSEventStreamEventFlagItemInodeMetaMod,
+                                        kFSEventStreamEventFlagItemRenamed,
+                                        kFSEventStreamEventFlagItemModified,
+                                        kFSEventStreamEventFlagItemFinderInfoMod,
+                                        kFSEventStreamEventFlagItemChangeOwner,
+                                        kFSEventStreamEventFlagItemXattrMod,
+                                        kFSEventStreamEventFlagItemIsFile,
+                                        kFSEventStreamEventFlagItemIsDir,
+                                        kFSEventStreamEventFlagItemIsSymlink,
+                                        kFSEventStreamEventFlagOwnEvent};
     int event_stream_flags_array_size = sizeof(event_stream_flags_array) / sizeof(int);
 
     NSMutableString *flags;
@@ -121,11 +119,9 @@ static inline NSString *NSStringFromFSEventFlags(FSEventStreamEventFlags eventFl
             [flags appendString:flagName];
         }
     }
-    
+
     return flags;
 }
-
-
 
 #pragma mark - BBUFileSystemEvent
 
@@ -138,17 +134,13 @@ static inline NSString *NSStringFromFSEventFlags(FSEventStreamEventFlags eventFl
 
 + (instancetype)fileSystemEventWithPath:(NSString *)path
                              eventFlags:(FSEventStreamEventFlags)eventFlags
-                             eventId:(FSEventStreamEventId)eventId
-{
-    return [[BBUFileSystemEvent alloc] initWithPath:path
-                                         eventFlags:eventFlags
-                                            eventId:eventId];
+                                eventId:(FSEventStreamEventId)eventId {
+    return [[BBUFileSystemEvent alloc] initWithPath:path eventFlags:eventFlags eventId:eventId];
 }
 
 - (id)initWithPath:(NSString *)path
         eventFlags:(FSEventStreamEventFlags)eventFlags
-           eventId:(FSEventStreamEventId)eventId
-{
+           eventId:(FSEventStreamEventId)eventId {
     self = [super init];
     if (self) {
         _path = path;
@@ -160,49 +152,39 @@ static inline NSString *NSStringFromFSEventFlags(FSEventStreamEventFlags eventFl
 
 #pragma mark - Event Type
 
-- (BOOL)itemWasCreated
-{
+- (BOOL)itemWasCreated {
     return [self containsEventFlag:kFSEventStreamEventFlagItemCreated];
 }
 
-- (BOOL)itemWasModified
-{
+- (BOOL)itemWasModified {
     return [self containsEventFlag:kFSEventStreamEventFlagItemModified];
 }
 
-- (BOOL)itemWasRemoved
-{
+- (BOOL)itemWasRemoved {
     return [self containsEventFlag:kFSEventStreamEventFlagItemRemoved];
 }
 
-- (BOOL)itemWasRenamed
-{
+- (BOOL)itemWasRenamed {
     return [self containsEventFlag:kFSEventStreamEventFlagItemRenamed];
 }
 
-- (BOOL)itemIsFile
-{
+- (BOOL)itemIsFile {
     return [self containsEventFlag:kFSEventStreamEventFlagItemIsFile];
 }
 
-- (BOOL)itemIsDirectory
-{
+- (BOOL)itemIsDirectory {
     return [self containsEventFlag:kFSEventStreamEventFlagItemIsDir];
 }
 
-- (BOOL)containsEventFlag:(int)eventFlag
-{
+- (BOOL)containsEventFlag:(int)eventFlag {
     return (self.eventFlags & eventFlag) == eventFlag;
 }
 
-
-
 #pragma mark - Description
 
-- (NSString *)description
-{
+- (NSString *)description {
     NSMutableString *descriptionExtension = [NSMutableString string];
-    
+
     [descriptionExtension appendFormat:@"; self.path = %@", self.path];
     [descriptionExtension appendFormat:@"; eventId = %llu", self.eventId];
     NSString *flags = NSStringFromFSEventFlags(self.eventFlags);

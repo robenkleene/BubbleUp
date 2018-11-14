@@ -16,16 +16,12 @@
 - (void)handleFileSystemEvent:(BBUFileSystemEvent *)fileSystemEvent;
 @end
 
-
 #pragma mark - C
 
-void wcl_plugin_directory_event_stream_callback(ConstFSEventStreamRef streamRef,
-                                                void *clientCallBackInfo,
-                                                size_t numEvents,
-                                                void *eventPaths,
+void wcl_plugin_directory_event_stream_callback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
+                                                size_t numEvents, void *eventPaths,
                                                 const FSEventStreamEventFlags eventFlags[],
-                                                const FSEventStreamEventId eventIds[])
-{
+                                                const FSEventStreamEventId eventIds[]) {
     BBUDirectoryWatcher *directoryWatcher = (__bridge BBUDirectoryWatcher *)clientCallBackInfo;
     int i;
     char **paths = eventPaths;
@@ -38,13 +34,11 @@ void wcl_plugin_directory_event_stream_callback(ConstFSEventStreamRef streamRef,
     }
 }
 
-
 #pragma mark - BBUDirectoryWatcher Implementation
 
 @implementation BBUDirectoryWatcher
 
-- (id)initWithURL:(NSURL *)url
-{
+- (id)initWithURL:(NSURL *)url {
     self = [super init];
     if (self) {
         [self watchURL:url];
@@ -52,12 +46,11 @@ void wcl_plugin_directory_event_stream_callback(ConstFSEventStreamRef streamRef,
     return self;
 }
 
-- (void)handleFileSystemEvent:(BBUFileSystemEvent *)fileSystemEvent
-{
-//    NSLog(@"%@ fileSystemEvent = %@", self, fileSystemEvent);
+- (void)handleFileSystemEvent:(BBUFileSystemEvent *)fileSystemEvent {
+    //    NSLog(@"%@ fileSystemEvent = %@", self, fileSystemEvent);
 
     NSString *path = fileSystemEvent.path;
-    
+
     // File system events are simplified into to possible events:
     // 1. A file was created or modified
     // 2. A file was removed
@@ -67,20 +60,17 @@ void wcl_plugin_directory_event_stream_callback(ConstFSEventStreamRef streamRef,
     // 1. For the original file
     // 2. For the new file
     // Therefore a rename event can either be a remove or create/modify
-    
+
     BOOL isDir = NO;
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir];
-    if (([fileSystemEvent itemWasRemoved] ||
-         [fileSystemEvent itemWasRenamed]) &&
-        !fileExists) {
+    if (([fileSystemEvent itemWasRemoved] || [fileSystemEvent itemWasRenamed]) && !fileExists) {
         // We can't distinguish between files and directories being removed since flags are cumulative.
         // If a file was replace at a path that once had a directory, or vice versa, then the file system
         // event will have both flags.
         if ([self.delegate respondsToSelector:@selector(directoryWatcher:itemWasRemovedAtPath:)]) {
             [self.delegate directoryWatcher:self itemWasRemovedAtPath:path];
         }
-    } else if (([fileSystemEvent itemWasCreated] ||
-                [fileSystemEvent itemWasModified] ||
+    } else if (([fileSystemEvent itemWasCreated] || [fileSystemEvent itemWasModified] ||
                 [fileSystemEvent itemWasRenamed]) &&
                fileExists) {
         if (isDir) {
@@ -95,40 +85,28 @@ void wcl_plugin_directory_event_stream_callback(ConstFSEventStreamRef streamRef,
     }
 }
 
-- (void)watchPath:(NSString *)path
-{
+- (void)watchPath:(NSString *)path {
     CFStringRef pathRef = (__bridge CFStringRef)path;
-    CFArrayRef pathsRef = CFArrayCreate(NULL,
-                                        (const void **)&pathRef,
-                                        1,
-                                        NULL);
+    CFArrayRef pathsRef = CFArrayCreate(NULL, (const void **)&pathRef, 1, NULL);
     FSEventStreamContext callbackInfo;
     callbackInfo.version = 0;
     callbackInfo.info = (__bridge void *)self;
     callbackInfo.retain = NULL;
     callbackInfo.release = NULL;
     callbackInfo.copyDescription = NULL;
-    
-    self.stream = FSEventStreamCreate(NULL,
-                                      &wcl_plugin_directory_event_stream_callback,
-                                      &callbackInfo,
-                                      pathsRef,
-                                      kFSEventStreamEventIdSinceNow,
-                                      0,
+
+    self.stream = FSEventStreamCreate(NULL, &wcl_plugin_directory_event_stream_callback, &callbackInfo, pathsRef,
+                                      kFSEventStreamEventIdSinceNow, 0,
                                       kFSEventStreamCreateFlagIgnoreSelf | kFSEventStreamCreateFlagFileEvents);
-    FSEventStreamScheduleWithRunLoop(self.stream,
-                                     CFRunLoopGetCurrent(),
-                                     kCFRunLoopDefaultMode);
+    FSEventStreamScheduleWithRunLoop(self.stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
     FSEventStreamStart(self.stream);
 }
 
-- (void)watchURL:(NSURL *)url
-{
+- (void)watchURL:(NSURL *)url {
     [self watchPath:[url path]];
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     FSEventStreamStop(self.stream);
     FSEventStreamInvalidate(self.stream);
 }
