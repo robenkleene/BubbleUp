@@ -16,7 +16,7 @@ swiftlint_autocorrect:
 	swiftlint autocorrect
 
 clangformat:
-	find . -iname *.h -o -iname *.m | xargs clang-format -i
+	git ls-files '*.h' '*.m' -z | xargs -0 clang-format -i
 
 build:
 	xcodebuild build \
