@@ -100,6 +100,7 @@ void wcl_plugin_directory_event_stream_callback(ConstFSEventStreamRef streamRef,
                                       kFSEventStreamCreateFlagIgnoreSelf | kFSEventStreamCreateFlagFileEvents);
     FSEventStreamScheduleWithRunLoop(self.stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
     FSEventStreamStart(self.stream);
+    CFRelease(pathsRef);
 }
 
 - (void)watchURL:(NSURL *)url {
