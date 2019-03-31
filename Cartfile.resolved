@@ -1,3 +1,3 @@
-github "robenkleene/OutOfTouch" "2.0.2"
-github "robenkleene/StringPlusPath" "1.0.1"
-github "robenkleene/XCTestTemp" "1.1.4"
+github "robenkleene/OutOfTouch" "2.1.0"
+github "robenkleene/StringPlusPath" "1.1.0"
+github "robenkleene/XCTestTemp" "1.2.0"
