@@ -12,3 +12,10 @@ jobs:
       - uses: actions/checkout@v2
       - run: carthage bootstrap
       - run: make ci
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: BubbleUp.framework.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
