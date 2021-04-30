@@ -1,9 +1,7 @@
-name: CI
+name: Release
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  tags:
+    - '*'
 
 jobs:
   ci:
@@ -16,13 +14,19 @@ jobs:
           channel: '#repla-development'
           nickname: repla-bot
           message: |-
-            CI Started ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
+            Deploy Started ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
       - run: carthage bootstrap
-      - run: make ci
+      - run: make release
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: BubbleUp.framework.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: IRC notification
         uses: Gottox/irc-message-action@v1
         with:
           channel: '#repla-development'
           nickname: repla-bot
           message: |-
-            CI finished ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
+            Deploy finished ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
