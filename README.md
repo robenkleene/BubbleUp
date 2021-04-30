@@ -1,4 +1,4 @@
-# BubbleUp [![Build Status](https://travis-ci.org/robenkleene/BubbleUp.svg?branch=master)](https://travis-ci.org/robenkleene/BubbleUp)
+# BubbleUp ![Status](https://github.com/robenkleene/bubbleup/actions/workflows/ci.yml/badge.svg)
 
 A simple Cocoa Wrapper for macOS [File System Events API](https://developer.apple.com/library/content/documentation/Darwin/Conceptual/FSEvents_ProgGuide/UsingtheFSEventsFramework/UsingtheFSEventsFramework.html).
 

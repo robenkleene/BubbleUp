@@ -1,0 +1,35 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ci:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: IRC notification
+        uses: Gottox/irc-message-action@v1
+        with:
+          channel: '#repla-development'
+          nickname: repla-bot
+          message: |-
+            CI Started ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
+      - run: carthage bootstrap
+      - run: make ci
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: BubbleUp.framework.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: IRC notification
+        uses: Gottox/irc-message-action@v1
+        with:
+          channel: '#repla-development'
+          nickname: repla-bot
+          message: |-
+            CI finished ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
