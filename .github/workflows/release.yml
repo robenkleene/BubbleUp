@@ -16,7 +16,7 @@ jobs:
           message: |-
             Deploy Started ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
       - run: carthage bootstrap
-      - run: make release
+      - run: make archive
       - name: Release
         uses: softprops/action-gh-release@v1
         with:

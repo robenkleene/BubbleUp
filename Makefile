@@ -1,6 +1,6 @@
 SCHEME = BubbleUp
 
-.PHONY: build test lint autocorrect swiftformat swiftlint_autocorrect bootstrap clangformat loc release
+.PHONY: build test lint autocorrect swiftformat swiftlint_autocorrect bootstrap clangformat loc archive
 
 ci: build
 ac: autocorrect
@@ -23,7 +23,7 @@ build:
 		-alltargets \
 		-configuration Debug
 
-release:
+archive:
 	carthage build --no-skip-current
 	carthage archive BubbleUp
 
