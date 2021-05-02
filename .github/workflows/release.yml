@@ -15,7 +15,7 @@ jobs:
           channel: '#repla-development'
           nickname: repla-bot
           message: |-
-            Deploy Started ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
+            Release started ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
       - run: carthage bootstrap
       - run: make archive
       - name: Release
@@ -30,4 +30,4 @@ jobs:
           channel: '#repla-development'
           nickname: repla-bot
           message: |-
-            Deploy finished ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
+            Release finished ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}

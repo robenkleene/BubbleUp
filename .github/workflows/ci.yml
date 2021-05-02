@@ -16,7 +16,7 @@ jobs:
           channel: '#repla-development'
           nickname: repla-bot
           message: |-
-            CI Started ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
+            CI started ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
       - run: carthage bootstrap
       - run: make ci
       - name: IRC notification
