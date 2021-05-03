@@ -5,7 +5,7 @@ on:
       - '*'
 
 jobs:
-  ci:
+  release:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,7 +16,6 @@ jobs:
           nickname: repla-bot
           message: |-
             Release started ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
-      - run: carthage bootstrap
       - run: make archive
       - name: Release
         uses: softprops/action-gh-release@v1
