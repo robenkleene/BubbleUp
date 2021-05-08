@@ -1,4 +1,4 @@
-name: Release
+îame: Release
 on:
   push:
     tags:
@@ -13,9 +13,9 @@ jobs:
         uses: Gottox/irc-message-action@v1
         with:
           channel: '#repla-development'
-          nickname: ${{ github.event.repository.name }}-bot
+          nickname: bot-${{ github.run_id }}
           message: |-
-            Release started for ${{ github.event.repository.name }}, ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
+            ${{ github.event.repository.name }} ${{ github.job }} started ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
       - run: make archive
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -27,6 +27,6 @@ jobs:
         uses: Gottox/irc-message-action@v1
         with:
           channel: '#repla-development'
-          nickname: ${{ github.event.repository.name }}-bot
+          nickname: bot-${{ github.run_id }}
           message: |-
-            Release finished for ${{ github.event.repository.name }}, ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
+            ${{ github.event.repository.name }} ${{ github.job }} finished ${{ github.actor }} pushed ${{ github.event.ref }} ${{ github.event.compare }}
