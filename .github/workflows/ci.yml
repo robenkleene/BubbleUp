@@ -8,7 +8,7 @@ on:
 jobs:
   ci:
     runs-on: macos-latest
-    timeout-minutes: 5
+    timeout-minutes: 20
     steps:
       - name: IRC notification
         uses: Gottox/irc-message-action@v2
